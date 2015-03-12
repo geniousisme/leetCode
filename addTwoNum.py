@@ -16,8 +16,8 @@ class linkedList:
     def printList(self):
         node = self.head
         while node:
-            print node.val
-            node = node.next
+              print node.val
+              node = node.next
     
 class Solution:
     # @return a ListNode

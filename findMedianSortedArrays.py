@@ -2,6 +2,7 @@ class Solution:
     # @return a float
     # compare the num in two sorted array by order, and store them into 
     # a list, then the median would be the last element(or last two, depends on the length sum) in the arrays
+    # the time cost is around 155 ~ 170 ms for leetCode test
     def juniorFMSA(self, A, B): #complexity = O(m+n)
         medianPos   = len(A + B) / 2
         idxA = idxB = 0

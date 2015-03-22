@@ -14,7 +14,8 @@ class Solution:
               left  -= 1; right += 1
         return True 
 
-
+###### to do #######
+# if there are any better way to do this
 
 ###### self-test case ########
 s = Solution()

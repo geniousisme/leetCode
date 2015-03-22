@@ -20,4 +20,5 @@ class Solution:
         
     def longestPalindrome(self, s):
         
-
+###### to do #######
+# write the O(N) version

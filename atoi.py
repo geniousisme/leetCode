@@ -1,7 +1,7 @@
 class Solution:
     # @return an integer
+    import re
     def atoi(self, str):
-        import re
         matchObj = re.match(r'[-+]*[0-9]+', str.strip()) # left -,+,and numbers only, clean up the whitespce in front & non-num words in the back
         if matchObj: # the str has int string to convert
              matchObjGroup = matchObj.group() # escape the none-type error since I put the group here
@@ -18,11 +18,16 @@ class Solution:
             return 0
     
     def isValidInt(self, str):
-        if str[0] == '-' or str[0] == '+':
-           return not (str[1] == '-' or str[1] == '+') # faster
+        if str[0] == '-' or str[0] == '+': # check if first index has - or +
+           return not (str[1] == '-' or str[1] == '+') # if the next index still has - or +, it is invalid format
         else:
            return True
 
+###### to do #######
+# 1. to write an no regular expression version
+# 2. if there are any better way to do this
+
+###### self-test case ########
 s = Solution()
 assert s.atoi('1') == 1
 assert s.atoi('1234567890') == 1234567890

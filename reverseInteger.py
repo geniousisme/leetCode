@@ -7,7 +7,8 @@ class Solution:
         for xs in list(xStr):
             x = xs + x
         return int(x) * negativeFlag if int(x) <= 2 ** 31 else 0
-
+###### to do #######
+# if there are any better way to do this
 
 ###### self-test case ########
 s = Solution()

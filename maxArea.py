@@ -12,6 +12,7 @@ class Solution:
                  right -= 1
         return max_area
 
-s = Solution()
-s.maxArea([1,2,3,4]) 
-s.maxArea([2,2,3,6]) 
+# from maxArea import Solution
+# s = Solution()
+# s.maxArea([1,2,3,4]) 
+# s.maxArea([2,2,3,6]) 

@@ -1,8 +1,7 @@
 class Solution:
     # @return a string
     def longestCommonPrefix(self, strs):
-        common_prefix = ""
-        idx = 0
+        common_prefix = ""; idx = 0
         if len(strs) == 0: return common_prefix
         while True:
             current_char = ""
@@ -11,9 +10,7 @@ class Solution:
                     if current_char == "": # no current string yet
                         current_char = string[idx] # assign
                     else: # hv current char to compare, we need to check
-                        if current_char == string[idx]:
-                            continue
-                        else: # no common anymore, return
+                        if current_char != string[idx]: 
                             return common_prefix
                 else: # out of range for string, need to return
                     return common_prefix

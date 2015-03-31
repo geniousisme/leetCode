@@ -3,17 +3,19 @@ class Solution:
     # -4 -1 -1 0 1 2
     def threeSum(self, num_list):
         num_list = sorted(num_list)
-        three_sum_comb = []
+        three_sum_comb = []; processed_dict = {}
         for idx, num in enumerate(num_list):
-            tmp_sum_comb = self.twoSum(num_list[idx + 1:], -num)
-            for sum_comb in tmp_sum_comb:
-                three_sum = [num] + sum_comb
-                if three_sum not in three_sum_comb:
-                   three_sum_comb.append(three_sum)
+            if not processed_dict.get(num):
+                tmp_sum_comb, tmp_dict = self.twoSum(num_list[idx + 1:], -num)
+                processed_dict = dict(processed_dict, **tmp_dict)
+                for sum_comb in tmp_sum_comb:
+                    three_sum = [num] + sum_comb
+                    if three_sum not in three_sum_comb:
+                       three_sum_comb.append(three_sum)
         return three_sum_comb
     
     def twoSum(self, num_list, summation):
-        num_idx_dict = {}; sum_combination = []
+        num_idx_dict = {}; sum_combination = []; processed_dict = {}
         for idx, num in enumerate(num_list):
             if summation - num in num_idx_dict:
                 sum_combination.append(                                 \
@@ -24,7 +26,8 @@ class Solution:
                                        ]                                \
                                       )
             num_idx_dict[num] = idx
-        return sum_combination
+            processed_dict[num] = True
+        return sum_combination, processed_dict
 
 
 

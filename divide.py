@@ -3,6 +3,8 @@
 
 # no matter recursive or iteration, it will cause get out of time limit
 # especially the max_int case, need to use some faster way to solve this
+# the commented codes are the codes not able to get accepted, but I just think 
+# the code is pretty, and also I spent lots of time on it, so I don't want to delete them XDDD
 
 class Solution:
     # @return an integer
@@ -26,8 +28,7 @@ class Solution:
     #              dividend += divisor
     #              quotient -= 1
     #        return quotient
-
-
+    
     def divide(self, dividend, divisor):
         quotient = divisor_sum = 0; flag = 1 
         if (dividend < 0) ^ (divisor < 0): # XOR dividend < 0, divisor < 0
@@ -47,6 +48,7 @@ class Solution:
         if result < -2 ** 31:
            return -2 ** 31
         return result
+        
         # def divide_recursion(dividend, divisor, count):
         #     if dividend >= divisor:
         #        return divide_recursion(dividend - divisor, divisor, count + 1)

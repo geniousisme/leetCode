@@ -1,5 +1,6 @@
 # import sys
 # sys.setrecursionlimit(2**31 - 1) # 10000 is an example, try with different values
+# above method cannot support for python on mac, will get segmentation fault
 
 # no matter recursive or iteration, it will cause get out of time limit
 # especially the max_int case, need to use some faster way to solve this

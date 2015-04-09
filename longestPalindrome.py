@@ -19,6 +19,6 @@ class Solution:
         return s[left + 1 : right]
         
     def longestPalindrome(self, s):
-        
+        pass
 ###### to do #######
 # write the O(N) version

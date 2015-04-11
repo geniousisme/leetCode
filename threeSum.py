@@ -1,7 +1,7 @@
 class Solution:
     # @return a list of lists of length 3, [[val1,val2,val3]]
     # -4 -1 -1 0 1 2
-    def threeSum(self, num_list):
+    def slowerThreeSum(self, num_list):
         num_list = sorted(num_list)
         three_sum_comb = []; processed_dict = {}
         for idx, num in enumerate(num_list):
@@ -28,6 +28,11 @@ class Solution:
             num_idx_dict[num] = idx
             processed_dict[num] = True
         return sum_combination, processed_dict
+
+    def threeSum(self, num_list):
+        num_list = sorted(num_list)
+        left = 0; right = len(num_list) - 1
+        
 
 
 

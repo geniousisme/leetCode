@@ -51,7 +51,7 @@ class Solution:
                    else:
                       self.sudoku[board[i][j]] += 1
             self.sudoku = self.clean_sudoku()
-
+        # check column            
         for i in xrange(0, 9):
             for j in xrange(0, 9):
                 if board[j][i] != '.':

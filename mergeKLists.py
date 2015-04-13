@@ -1,11 +1,3 @@
-# Definition for singly-linked list.
-import heapq
-
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
 # class Solution:
 #     # @param a list of ListNode
 #     # @return a ListNode
@@ -38,6 +30,7 @@ class ListNode:
 class Solution:
     # @param a list of ListNode
     # @return a ListNode
+    # use sorted will get TLE, so change to heap
     def mergeKLists(self, lists):
         heap = []
         for node in lists:
@@ -51,8 +44,6 @@ class Solution:
             curr = curr.next
             if pop[1].next: 
                 heapq.heappush(heap, (pop[1].next.val, pop[1].next))
-        return head.next
-
     def print_llst(self, head):
         llst = ""
         while head:
@@ -75,6 +66,3 @@ if __name__ == "__main__":
    s = Solution()
    ml = s.mergeKLists([l1, l2, l3])
    s.print_llst(ml)
-   
-
-        

@@ -20,7 +20,8 @@ class Solution:
 
 if __name__ == '__main__':
    s = Solution()
-   print s.countAndSay(0)
+   arr = range(0, 10)
+   print s.mergeSwap()
 
         
             

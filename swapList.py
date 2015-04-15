@@ -18,12 +18,9 @@ class Solution:
             return self.swap(num_list)
         mid = len(num_list) / 2
         prev = self.mergeSwap(num_list[:mid])
-        # print "prev", prev
         post = self.mergeSwap(num_list[mid:])
-        # print "post", post
         result += prev
         result += post
-        # print result
         return result
 
     def divide_two_pow(self, num_list, num_len): # 找出 array 是幾個 2 次方數的集合，ex. 14 = 2 ** 3 + 2 ** 2 + 2
@@ -38,12 +35,11 @@ class Solution:
                        power += 1
                  length = 2 ** power
                  result.append(num_list[start:start + length])
-                 # result.append(2 ** power)
                  start += length
               num_len -= length
         return result
         
-    def swap(self, num_list): # 兩兩相臨元素對調
+    def swap(self, num_list): # 兩兩相鄰元素對調
         tmp = num_list[0]
         num_list[0] = num_list[1]
         num_list[1] = tmp

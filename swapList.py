@@ -7,7 +7,12 @@ class Solution:
     
     def swapList(self, num_list): # 合併 array
         num_two_sqrt_list = self.divide_two_pow(num_list, len(num_list))
-        return [num for num_list in num_two_sqrt_list for num in self.mergeSwap(num_list)]
+        final_list = []
+        for num_list in num_two_sqrt_list:
+            final_list.extend(self.mergeSwap(num_list))
+        return final_list
+        # cool code in one line, but it is slower actually
+        # return [num for num_list in num_two_sqrt_list for num in self.mergeSwap(num_list)]
     
     def mergeSwap(self, num_list): # 把 2 次方的 array 兩兩相鄰的對調
         result = []
@@ -19,8 +24,8 @@ class Solution:
         mid = len(num_list) / 2
         prev = self.mergeSwap(num_list[:mid])
         post = self.mergeSwap(num_list[mid:])
-        result += prev
-        result += post
+        result.extend(prev)
+        result.extend(post)
         return result
 
     def divide_two_pow(self, num_list, num_len): # 找出 array 是幾個 2 次方數的集合，ex. 14 = 2 ** 3 + 2 ** 2 + 2
@@ -48,7 +53,7 @@ class Solution:
 
 if __name__ == '__main__':
    s = Solution()
-   arr = range(0, 2 ** 10)
+   arr = range(0, 12)
    print s.swapList(arr)
    # print s.mergeSwap(arr)
    # print s.divide_two_pow(6)

@@ -43,6 +43,10 @@ class Solution:
                  start += length
               num_len -= length
         return result
+
+    def divide_two_recurs(self, num_len, power):
+        result =    
+
         
     def swap(self, num_list): # 兩兩相鄰元素對調
         tmp = num_list[0]

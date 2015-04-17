@@ -58,19 +58,14 @@ if __name__ == '__main__':
    # print s.split_diff_str(string)
    # print s.split_diff_str(pattern)
    # print s.isMatch(string, pattern)   
-<<<<<<< HEAD
    string = 'cab'
    pattern = 'c*a*b'
    print s.isMatch(string, pattern)
-=======
    # string = 'cccaabbbb'
    # pattern = 'c*a*b'
    # print s.forward_to_diff_str_idx(4, string)
    # print s.split_diff_str(string)
    # print s.split_diff_str(pattern)
-   print s.isMatch('cab', 'c*.b*')   
->>>>>>> 97799db4042b01bc83c0f1733223680a39c595aa
-
    string = '..*'
    pattern = 'cab'
    print s.isMatch(string, pattern)

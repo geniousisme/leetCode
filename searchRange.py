@@ -4,4 +4,7 @@ class Solution:
     # @return a list of length 2, [index1, index2]
     def searchRange(self, A, target):
         pass
+
+if __name__ == '__main__':
+   s = Solution()
         

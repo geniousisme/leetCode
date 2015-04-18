@@ -27,18 +27,31 @@ class Solution:
         # print 'end:', end.val
         new_start = ListNode(-1); new_start.next = start
         while new_start.next != end:
-              tmp = start.next
-              start.next = tmp.next
-              tmp.next = new_start.next
-              new_start.next = tmp
-              print "new_start:"
-              self.print_llst(new_start)
-              print "start"
-              self.print_llst(start)
-              # print 'start', start.val
-              # print 'new_start', new_start.val
-              # print '#########'
-        return end, start    
+              current = new_start.next 
+              
+
+
+
+
+
+
+
+
+        # while new_start.next != end:
+        #       tmp = start.next
+        #       start.next = tmp.next
+        #       tmp.next = new_start.next
+        #       new_start.next = tmp
+        #       print "new_start:"
+        #       self.print_llst(new_start)
+        #       print "start"
+        #       self.print_llst(start)
+        #       print '#########'
+        # print '## end ##'      
+        # self.print_llst(end)
+        # print '## start ##'
+        # self.print_llst(start)
+        # return end, start    
     
     def reverseKGroup(self, head, k):
         if not head: return head
@@ -74,7 +87,7 @@ if __name__ == '__main__':
    test.next.next.next.next.next = ListNode(5)
    s.print_llst(test)
    # s.print_llst(s.reversellst(test))
-   s.print_llst(s.reverseKGroup(test, 2))
+   s.print_llst(s.reverseKGroup(test, 3))
 
 
         

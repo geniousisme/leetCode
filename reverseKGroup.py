@@ -15,11 +15,27 @@ class Solution:
               start.next = tmp.next
               tmp.next = new_start.next
               new_start.next = tmp
+        return [end, start]
 
+    def reverseKGroup(self, head, k):
+        new_head = ListNode(0); new_head.next = head; start = new_head
+        while start.next:
+              end = start
+              for i in xrange(k - 1):
+                  end = end.next
+                  if not end.next:
+                     return new_head.next
+              start.next, start = self.reverse(start.next, end.next)
+        return new_head.next
 
-
-
-    # def reverseKGroup(self, head, k):
+    def print_llst(self, head):
+        llst = ""
+        while head:
+              llst += str(head.val)
+              if head.next:
+                 llst += '->'
+              head = head.next
+        print llst
 
 
 if __name__ == '__main__':
@@ -30,6 +46,9 @@ if __name__ == '__main__':
    test.next.next.next = ListNode(3)
    test.next.next.next.next = ListNode(4)
    test.next.next.next.next.next = ListNode(5)
+   s.print_llst(test)
+   s.print_llst(s.reverseKGroup(test, 3))
+
 
 
         

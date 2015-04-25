@@ -5,5 +5,6 @@ class Solution:
     def searchRange(self, A, target):
         pass
 
-in __name__ == '__main__':
+if __name__ == '__main__':
    s = Solution()
+        

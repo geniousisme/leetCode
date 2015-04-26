@@ -4,7 +4,7 @@ class Solution:
     # @return a list of length 2, [index1, index2]
     def searchRange(self, A, target):
         end = len(A)
-        forward = backward = self.binarySearch(A, 0, end, target)
+        forward = backward = self.binarySearch(A, 0, end, target) # binary search, find the target first
         for i in xrange(forward + 1, end):
             if A[i] != target:
                break
@@ -19,6 +19,7 @@ class Solution:
 
     def binarySearch(self, A, start, end, target):
         if len(A[start:end]) == 1:
+        # if end - start == 2:
             if A[0] == target:
                return start
             else:
@@ -38,5 +39,5 @@ if __name__ == '__main__':
    A =  [5, 7, 7, 7, 7, 7, 8, 8, 9, 10]
    # for i in xrange(0, 100):
    #     print s.binarySearch(A, 0, len(A), 9)
-   print s.searchRange(A, 8)
+   print s.searchRange(A, 10)
         

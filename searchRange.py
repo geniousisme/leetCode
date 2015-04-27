@@ -30,9 +30,7 @@ class Solution:
         elif A[mid] < target:
              return self.binarySearch(A, mid, end, target)
         else: # A[mid] == target
-             return mid
-
-        
+             return mid       
 
 if __name__ == '__main__':
    s = Solution()

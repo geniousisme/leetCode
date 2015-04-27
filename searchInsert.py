@@ -16,22 +16,19 @@ class Solution:
     
     def binaryInsertSearch(self, nums, start, end, target):
         if len(nums[start:end]) == 1:
-           return start
-        elif len(nums[start:end]) == 2:
-             last_idx = end - 1
-             if nums[last_idx] > target > nums[start]:
+           if nums[0] == target:
+              return start
+           elif nums[0] < target:
                 return start + 1
-             else:
-                if nums[last_idx] == target: return last_idx
-                if nums[start] == target: return start
+           else: # nums[0] > target
+                return start - 1
+        mid = (end + start) / 2
+        if nums[mid] > target:
+           return self.binaryInsertSearch(nums, start, mid, target)
+        elif nums[mid] < target:
+             return self.binaryInsertSearch(nums, mid, end, target)
         else:
-             mid = (end + start) / 2
-             if nums[mid] > target:
-                return self.binaryInsertSearch(nums, start, mid, target)
-             elif nums[mid] < target:
-                  return self.binaryInsertSearch(nums, mid, end, target)
-             else:
-                  return mid
+             return mid
 
 if __name__ == '__main__':
    s = Solution()
@@ -44,5 +41,5 @@ if __name__ == '__main__':
    print s.searchInsert(nums, 0)
    print s.searchInsert(nums, 2)
    print s.searchInsert(nums, 4) # this one need to debug
-
+   print s.searchInsert(nums, -1)
 

@@ -25,7 +25,9 @@ class Solution:
 
     def DFS(self, diff, candidates, comb, start):
         if not diff: # diff == 0
-           self.res.append(comb)
+           # print 'comb', comb
+           # self.res.append(comb) # version 1: we pass the list directly here, so dont need to change it into list.
+           self.res.append(list(comb)) # version 2: since we use the address(generator) of list directly, change it to list now
            # print 'res:', self.res
            return self.res
         else:
@@ -36,11 +38,17 @@ class Solution:
                   # print '# diff:', diff
                   # print '# comb:', comb
                   # print '===== end ====='
-                  return
+                  # return
+                  break # or you can write 'return', both end the function and ship to next recursion
                else:
                   # print 'diff:', diff
                   # print 'comb', comb
-                  self.DFS(diff - candidates[i], candidates, comb + [candidates[i]], i)
+                  comb.append(candidates[i]) # version 2: use append to record the list, but it change the list directly, need to pop out the thing later, after close the recursion
+                  # self.DFS(diff - candidates[i], candidates, comb + [candidates[i]], i) # version 1: use '+' to generate new list, but it doesnt change original comb
+                  self.DFS(diff - candidates[i], candidates, comb, i)
+                  comb.pop() # version 2: recover the value of comb now, backtracking
+
+# P.S. version 1 & 2 速度差不多，推測是因為 version 2 雖然用了 append ，但在結束之後還是得用上 pop 來恢復
 
 if __name__ == '__main__':
    s = Solution()

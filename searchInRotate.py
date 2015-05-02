@@ -8,8 +8,8 @@ class Solution:
         if pivot < 0: # there is no pivot
           return self.binarySearch(nums, 0, length, target)
         else:      
-          post_idx  = self.binarySearch(nums[pivot + 1:], 0, length - pivot - 1, target)
-          prev_idx  = self.binarySearch(nums[:pivot + 1], 0, pivot + 1, target)
+          post_idx  = self.binarySearch(nums[pivot + 1:], 0, length - pivot - 1, target) # search in previous list 
+          prev_idx  = self.binarySearch(nums[:pivot + 1], 0, pivot + 1, target) # search in post list 
           if prev_idx > -1:
              return prev_idx
           elif post_idx > -1:

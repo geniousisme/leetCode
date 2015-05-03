@@ -1,29 +1,24 @@
 class Solution:
+    # @param A, a list of integers
     # @return an integer
-    def divide(self, dividend, divisor):
-        if (dividend < 0 and divisor > 0) or (dividend > 0 and divisor < 0):
-            if abs(dividend) < abs(divisor):
-                return 0
-        sum = 0; count = 0; res = 0
-        a = abs(dividend); b = abs(divisor)
-        while a >= b:
-            sum = b
-            count = 1
-            while sum + sum <= a:
-                sum += sum
-                count += count
-            a -= sum
-            res += count
-        if (dividend < 0 and divisor > 0) or (dividend > 0 and divisor < 0):
-            res = 0 - res
-        return res
+    def firstMissingPositive(self, A):
+        i = 0
+        while i < len(A):
+            if 1 <= A[i] <= len(A) and A[A[i]-1] != A[i]:
+                A[A[i]-1], A[i] = A[i], A[A[i]-1]
+            else:
+                i += 1
+        print A
+        i = 0
+        while i < len(A):
+            if A[i] != i+1:
+                return i+1
+            i += 1
+        return i+1
 
-if __name__ == "__main__":
+if __name__ == '__main__':
    s = Solution()
-   print s.divide(10, -3)
-   print s.divide(-2**33, 1)
-   print s.divide(2, 3)
-   print s.divide(-2, 3)
- 
-
-
+   # print s.get_max_min([3,4,-1,1])
+   print s.firstMissingPositive([1,2,0])
+   print s.firstMissingPositive([3,4,-1,1])
+   print s.firstMissingPositive([3,0, 5, 10])

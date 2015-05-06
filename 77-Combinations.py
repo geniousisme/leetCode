@@ -16,11 +16,9 @@ class Solution:
             self.res.append(list(comb))
             return
         for i in xrange(len(left_nums)):
-            comb.append(left_nums[i])
-            # self.DFS(comb + [left_nums[i]], left_nums[i + 1:], k)
+            comb.append(left_nums[i]) # optimized
             self.DFS(comb, left_nums[i + 1:], k)
-            # comb.remove(left_nums[i])
-            comb.pop(-1)
+            comb.remove(left_nums[i]) # optimized
 
 
 if __name__ == '__main__':

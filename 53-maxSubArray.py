@@ -37,12 +37,12 @@ class Solution:
         max_sum      = -9999
         for i in xrange(len(nums)):
             last_sum = max(last_sum + nums[i], nums[i]) # compare two things first, 1) last sum, from previous maximum idx to current index, 2) current num: if current is bigger than last_sum + self, choose self
-            max_sum      = max(last_sum, max_sum) # compare last_max_sum with last sum
+            max_sum  = max(last_sum, max_sum) # compare last_max_sum with last sum
         return max_sum
 
     def maxSubArray(self, nums): # god logic
         last_sum = 0
-        max_sum      = -9999
+        max_sum  = -9999
         for i in xrange(len(nums)):
             if last_sum < 0:
                last_sum = 0

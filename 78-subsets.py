@@ -35,7 +35,7 @@ class Solution:
         self.DFS([], 0, nums, 0)
         return self.res
         
-    def DFS(self, comb, start, nums, depth):
+    def DFS(self, comb, start, nums, depth): # optimized, use index but not whole list
         self.res.append(list(comb))
         if depth == self.length:  return
         for i in xrange(start, self.length):

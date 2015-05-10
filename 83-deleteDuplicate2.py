@@ -8,14 +8,26 @@ class Solution:
     # @param {ListNode} head
     # @return {ListNode}
     def deleteDuplicates(self, head):
-        dummy = ListNode(-1); dummy.next = head; tmp = dummy
+        # dummy = ListNode(-1); dummy.next = head; tmp = dummy
+        # while tmp.next:
+        #       if tmp.val == tmp.next.val:
+        #          curr = tmp
+        #          curr.next = tmp.next.next
+        #       else:
+        #          tmp = tmp.next
+        # return dummy.next
+
+        # the following a much more simplified version
+        if head is None or head.next is None: return head
+        tmp = head
         while tmp.next:
               if tmp.val == tmp.next.val:
-                 curr = tmp
-                 curr.next = tmp.next.next
+                 # curr = tmp
+                 tmp.next = tmp.next.next
               else:
                  tmp = tmp.next
-        return dummy.next
+        # return dummy.next
+        return head
 
     def print_llst(self, head):
         llst = ""

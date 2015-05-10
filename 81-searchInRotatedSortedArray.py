@@ -47,7 +47,7 @@ class Solution:
                    if nums[mid] > target >= nums[left]: right = mid - 1
                    else: left = mid + 1
               else: # nums[mid] <= nums[left]:
-                   if nums[mid] <= target < nums[left]: left  = mid + 1
+                   if nums[mid] <= target < nums[left]: left  = mid + 1 # one more case, the head part is the rotated part
                    else: right = mid - 1
         return False
 

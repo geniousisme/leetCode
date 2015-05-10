@@ -38,6 +38,8 @@ class Solution:
     #     new_end.next = None    
     #     return new_start
 
+    # this version complexity is O(n + step), 
+    # step definition in coding
     def rotateRight(self, head, k):
         if not k: return head
         if head is None: return head
@@ -48,15 +50,15 @@ class Solution:
               length += 1
               tmp = tmp.next
         step = length - (k % length)
-        tmp.next = start.next
+        tmp.next = start.next # connect the end to the head
         # print "step:", step
         new_start = head
         for i in xrange(step):
-            new_start = new_start.next
-            new_end   = new_end.next
+            new_start = new_start.next # get the new start node
+            new_end   = new_end.next # get the new end node
             # print 'new_start:', new_start.val
             # print 'new_end:', new_end.val
-        new_end.next = None
+        new_end.next = None # set new end of the llst
         return new_start
 
     def print_llst(self, head):

@@ -1,7 +1,7 @@
 class Solution:
     # @param {string} path
     # @return {string}
-    def simplifyPath(self, path):
+    def mySimplifyPath(self, path):
         path_list = path.split('/')
         print path_list
         simp_path = []
@@ -24,6 +24,38 @@ class Solution:
            return '/'
         else:
            return res
+
+    def simplifyPath1(self, path): # purely by idx
+        stack = []
+        i = 0
+        res = ''
+        while i < len(path):
+            end = i+1
+            while end < len(path) and path[end] != "/":
+                end += 1
+            sub=path[i+1:end]
+            if len(sub) > 0:
+                if sub == "..":
+                    if stack != []: stack.pop()
+                elif sub != ".":
+                    stack.append(sub)
+            i = end
+        if stack == []: return "/"
+        for i in stack:
+            res += "/"+i
+        return res
+
+    def simplifyPath2(self, path):
+        path = path.split('/')
+        curr = '/'
+        for i in path:
+            if i == '..':
+                if curr != '/':
+                    curr = '/'.join(curr.split('/')[:-1])
+                    if curr == '': curr = '/'
+            elif i != '.' and i != '':
+                curr += '/' + i if curr != '/' else i
+        return curr
         
 if __name__ == '__main__':
    s = Solution()

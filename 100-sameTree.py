@@ -10,10 +10,8 @@ class Solution:
     # @param {TreeNode} q
     # @return {boolean}
     def isSameTree(self, p, q):
-        if p and q:
-           return self.recurCheck(p, q)
-        return False
-
+        return self.recurCheck(p, q)
+        
     def recurCheck(self, p, q):
         if p == None and q == None: return True
         if p and q and p.val == q.val:

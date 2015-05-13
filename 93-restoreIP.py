@@ -1,6 +1,9 @@
 class Solution:
     # @param {string} s
     # @return {string[]}
+    # for more detail, read this website for this algo:
+    # http://www.cnblogs.com/zuoyuan/p/3768112.html
+
     def __init__(self):
         self.res = []
     

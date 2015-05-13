@@ -13,8 +13,13 @@ class Solution:
            return self.recursiveJudge(root.left, root.right)
         return True
     
-
     def recursiveJudge(self, l, r):
+        if l == None and r == None: return True
+        if l and r and l.val == r.val: 
+           return self.recursiveJudge(l.right and r.left) and self.recursiveJudge(l.left, r.right)
+        return False
+
+    def iterativeJudge(self, l, r):
         if l == None and r == None: return True
         if l and r and l.val == r.val: 
            return self.recursiveJudge(l.right and r.left) and self.recursiveJudge(l.left, r.right)

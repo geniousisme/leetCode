@@ -17,11 +17,11 @@ class Solution:
         self.BFS(root)
         return self.lv_order
 
-    def BFS(self, node):
+    def BFS(self, node): # BFS
         curr_lv = []
         next_lv = []
         while self.queue:
-              node = self.queue.pop(0)
+              node = self.queue.pop(0) # LILO
               if node:
                  curr_lv.append(node.val)
                  next_lv.extend([node.left, node.right])
@@ -31,15 +31,18 @@ class Solution:
                  self.queue.extend(next_lv)
                  curr_lv = []
                  next_lv = []
-
-    def preorder(self, root, level, res):
+    
+    # my original thought is not that good, use too much space
+    # personally think the dfs with recursive implementation is better.
+    
+    def preorder(self, root, level, res): # DFS
         if root:
             if len(res) < level+1: res.append([])
             res[level].append(root.val)
             self.preorder(root.left, level+1, res)
             self.preorder(root.right, level+1, res)
     
-    def levelOrder(self, root):
+    def dfsLevelOrder(self, root):
         res=[]
         self.preorder(root, 0, res)
         return res

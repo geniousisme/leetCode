@@ -17,4 +17,5 @@ class Solution:
         if node is None: return True
         if not past_min < node.val < past_max:
            return False
-        return self.bstCheck(node.right, node.val, past_max) and self.bstCheck(node.left, past_min, node.val)
+        return self.bstCheck(node.right, node.val, past_max) and \
+               self.bstCheck(node.left, past_min, node.val)

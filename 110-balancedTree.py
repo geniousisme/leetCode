@@ -5,6 +5,8 @@
 #         self.left = None
 #         self.right = None
 
+# Chris:TODO:: find some faster algorithm
+
 class Solution:
     # @param {TreeNode} root
     # @return {boolean}    

@@ -19,8 +19,8 @@ class Solution:
         if node:
            if len(self.res) < depth + 1: 
                self.res.append([])
-           # print 'node:', node.val
-           # print 'depth:', depth
+           print 'node:', node.val
+           print 'depth:', depth
            if depth % 2 == 0:
               self.res[depth].append(node.val)
            else: 

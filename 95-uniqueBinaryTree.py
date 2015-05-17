@@ -17,8 +17,8 @@ class Solution:
            res.append(None)
            return res
         for node_val in xrange(start, end + 1):
-            left_node_list  = self.buildBinaryTree(start, node_val - 1)
-            right_node_list = self.buildBinaryTree(node_val + 1, end)
+            left_node_list  = self.buildBinaryTree(start, node_val - 1) # notice the upper bound
+            right_node_list = self.buildBinaryTree(node_val + 1, end) # notice the lower bound, or it will get easy to TLE
             for l in left_node_list:
                 for r in right_node_list:
                     node = TreeNode(node_val)

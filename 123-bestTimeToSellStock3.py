@@ -1,6 +1,7 @@
 class Solution:
     # @param prices, a list of integer
     # @return an integer
+    # Chris:TODO::rewrite the algo by yourslef again.
     def maxProfit(self, prices):
         length=len(prices)
         if length==0: return 0

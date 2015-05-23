@@ -6,16 +6,18 @@ class MinStack:
     
     def push(self, x):
         self.hash['stack'].append(x)
-        if x < self.hash['min']:
-           self.hash['min'] = x
+        if self.hash['min_stack']:
+           if x <= self.hash['min_stack'][-1]:
+              self.hash['min_stack'].append(x)
+        else:
+           self.hash['min_stack'].append(x)
 
     # @return nothing
     def pop(self):
-        self.hash['stack'].pop()
-        if self.hash['stack']:
-           self.hash['min'] = min(self.hash['stack'])
-        else:
-           self.hash['min'] = float('inf')
+        top = self.hash['stack'].pop()
+        if top == self.hash['min_stack'][-1]:
+           self.hash['min_stack'].pop()
+        
     # @return an integer
     def top(self):
         return self.hash['stack'][-1]
@@ -23,7 +25,7 @@ class MinStack:
 
     # @return an integer
     def getMin(self):
-        return self.hash['min']
+        return self.hash['min_stack'][-1]
 
 if __name__ == '__main__':
    m = MinStack()
@@ -31,6 +33,7 @@ if __name__ == '__main__':
    m.push(0)
    m.push(3)
    m.push(0)
+   print m.hash
    print m.getMin()
    m.pop()
    print m.getMin()

@@ -13,7 +13,6 @@ class Solution:
                  if tokens[i] == '*':
                     stack.append(second * first)
                  elif tokens[i] == '/':
-                      # stack.insert(0, second / first)
                       stack.append(self.divide(first, second))
                  elif tokens[i] == '+':
                       stack.append(second + first)

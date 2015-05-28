@@ -10,7 +10,7 @@ class Solution:
                 if s[i] == s[j] and (j - i < 2 or P[i + 1][j - 1]):
                    P[i][j] = True
                    D[i] = min(D[i], D[j + 1] + 1)
-        print D
+        # print D
         return D[0] - 1
 
 if __name__ == '__main__' :

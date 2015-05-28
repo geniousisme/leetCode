@@ -7,7 +7,7 @@ class Solution:
         self.length  = 0
         self.width   = 0 
     
-    # Chris:TODO:: change it to the following version
+    # Chris:TODO:: change it to the following version, replace the word matching with index
 
     def exist(self, board, word):
         self.wordLen = len(word)

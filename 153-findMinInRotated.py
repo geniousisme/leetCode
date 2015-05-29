@@ -6,6 +6,7 @@ class Solution:
            return nums[0]
         return self.binarySearch(nums, nums[0], 0, len(nums))
 
+    # Chris:TODO::write the iterative version
     def binarySearch(self, nums, curr_min, start, end):
         if end == 1 + start:
            return curr_min

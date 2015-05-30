@@ -10,5 +10,9 @@ class Solution:
             for j in xrange(i):
                 if dp[j] and s[j:i] in wordDict:
                    dp[i] = True
+        # print dp
         return dp[-1]
-        
+
+if __name__ == '__main__':
+   s = Solution()
+   print s.wordBreak('leetcode', ['leet', 'code'])

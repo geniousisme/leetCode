@@ -1,11 +1,11 @@
 class Solution:
     # @return a string
     def convertToTitle(self, num):
-        ans = ''
+        ans = []
         while num:
-            ans = chr(65 + (num - 1) % 26) + ans
+            ans.insert(0, chr(65 + (num - 1) % 26))
             num = (num - 1) / 26
-        return ans
+        return ''.join(ans)
 
 if __name__ == '__main__':
    s = Solution()

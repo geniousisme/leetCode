@@ -17,7 +17,7 @@ class Solution:
                     sum -= nums[start]
                     start += 1
         return [0, min_length][min_length <= length]
-
+    # Chris:TODO::need to implement the binary search way.
 if __name__ == '__main__':
    s = Solution()
    print s.minSubArrayLen(7, [2,3,1,2,3,4])

@@ -15,8 +15,6 @@ class Solution:
                       if alphabet != currword[i]:
                          nextword = currword[:i] + alphabet + currword[i + 1:]
                          if nextword in wordDict:
-                            # print 'currlen:', currlen
-                            # print 'currword:', currword
                             queue.append((nextword, currlen + 1))
                             wordDict.remove(nextword)                      
         return 0

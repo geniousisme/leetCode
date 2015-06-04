@@ -10,6 +10,7 @@ class Solution:
     # @return {integer[][]}
     def __init__(self):
         self.res = []
+  
     
     def zigzagLevelOrder(self, root):
         self.zigzag_traverse(0, root)

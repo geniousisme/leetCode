@@ -7,9 +7,6 @@ class Point:
 class Solution:
     # @param {Point[]} points
     # @return {integer}
-    def __init__(self):
-        self.slope_hash = {'inf': 0}
-    
     def maxPoints(self, points):
         length = len(points)
         if length < 3:

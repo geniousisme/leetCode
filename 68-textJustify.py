@@ -23,23 +23,20 @@ class Solution:
         return res
     
     def lineJustify(self, line, word_len_sum, maxWidth, last=False):
-        length = len(line)
-        gap_num = length - 1           
-        diff = maxWidth - word_len_sum
+        length  = len(line); gap_num = length - 1; diff = maxWidth - word_len_sum
         if gap_num == 0:  
            return line[0] + ' ' * diff
         if last:
            return ' '.join(line) + ' ' * (diff - gap_num)
-        space_nums = []
         res = line[0]
         idx = 1
         while diff:
               space_num = int(ceil(diff * 1.0 / gap_num))
               # space_num = (diff / gap_num) + 1
               gap_num -= 1
-              diff -= space_num
-              res += ' ' * space_num + line[idx]
-              idx += 1
+              diff    -= space_num
+              res     += ' ' * space_num + line[idx]
+              idx     += 1
         return res 
 
 if __name__ == '__main__':

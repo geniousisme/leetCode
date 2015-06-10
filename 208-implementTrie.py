@@ -1,3 +1,5 @@
+# Chris:TODO::read this one more time!!!!
+
 class TrieNode:
     # Initialize your data structure here.
     def __init__(self):

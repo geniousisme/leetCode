@@ -8,40 +8,41 @@ class Solution:
     # @param {ListNode} head
     # @return {void} Do not return anything, modify head in-place instead.
     def reorderList(self, head):
-        length = 0
-        start = head
-        last = None
-        while start:
-              length += 1
-              new = ListNode(start.val)
-              new.next = last
-              last = new
-              start = start.next
+        # find the middle of the linked list
+        if head is None or head.next is None:
+           return
+        
+        fast = slow = head
+        while fast.next and fast.next.next:
+              slow = slow.next
+              fast = fast.next.next
+        
+        # seperate right and left linked list
+        mid       = slow.next
+        slow.next = None        
+        left      = head
+        right     = mid
 
-        new_next  = new
-        new_start = head
-        count = 0
-
-        while count < length:
-              if count % 2 == 0:
-                 head_next = head.next
-                 head.next = new_next
-                 head      = head_next
-              else:
-                 new_next = new.next
-                 new.next = head_next
-                 new      = new_next
-              count += 1
-        head = None
-        # head.next = None
-        # new = None
-        new.next = None
-        return new_start
-
-
-
-
-        # return new
+        # reverse the right part of 
+        start = None
+        while right:
+              next       = right.next
+              right.next = start
+              start      = right
+              right      = next
+        right = start
+        
+        # merge two linked list together
+        new_start = new = ListNode(0)
+        while left:
+              new.next = left
+              new = new.next
+              left = left.next
+              if right:
+                 new.next = right
+                 new = new.next
+                 right = right.next
+        head = new_start.next
 
     def print_llst(self, head):
         llst = ""
@@ -58,8 +59,11 @@ if __name__ == '__main__':
    test.next = ListNode(2)
    test.next.next = ListNode(3)
    test.next.next.next = ListNode(4)
-   # test.next.next.next.next = ListNode(5)
-   s.print_llst(s.reorderList(test))
+   test.next.next.next.next = ListNode(5)
+   test.next.next.next.next.next = ListNode(6)
+   test.next.next.next.next.next.next = ListNode(7)
+   s.reorderList(test)
+   s.print_llst(test)
 
 
 

@@ -13,4 +13,6 @@ if __name__ == '__main__':
    print s.convertToTitle(26)
    print s.convertToTitle(27)
    print s.convertToTitle(31)
+   print s.convertToTitle(52)
+   print s.convertToTitle(53)
    print s.convertToTitle(24568)

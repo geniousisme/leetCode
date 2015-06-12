@@ -16,7 +16,6 @@ class Solution:
                if t[i] in dictionary.values():
                   return False
                dictionary[s[i]] = t[i]
-
         return True
 
 if __name__ == '__main__':

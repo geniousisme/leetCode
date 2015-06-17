@@ -15,6 +15,7 @@ class Solution:
         for i in xrange(curr + 1, 10):
             self.recCombination(i, k, count + 1, left - i, comb + [i], res)
 
+
 if __name__ == '__main__':
    s = Solution()
    print s.combinationSum3(3, 7)

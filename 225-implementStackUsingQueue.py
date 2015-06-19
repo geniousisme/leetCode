@@ -2,8 +2,7 @@ class Stack:
     # initialize your data structure here.
     def __init__(self):
         self.queue = []
-        
-
+    
     # @param x, an integer
     # @return nothing
     def push(self, x):

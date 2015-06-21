@@ -1,26 +1,28 @@
 class Solution:
-    # @param num, a list of integer
-    # @return a list of lists of integers
-    def permuteUnique(self, num):
-        num.sort()
+    # @param {integer[]} nums
+    # @return {integer[][]}
+    def __init__(self):
+        self.length = 0
+    def permuteUnique(self, nums):
         res = []
-        visited = [False for itr in xrange(len(num))]
-        self.permuteUnique_rec(num, 0, visited, [], res)
+        if nums:
+           self.length = len(nums)
+           nums.sort()
+           visited = [False for i in xrange(self.length)]
+           self.dfs(nums, [], 0, visited, res)
         return res
- 
-    def permuteUnique_rec(self, num, level, visited, stk, res):
-        if level == len(num):
-           res.append(stk)
-        else:
-           i = 0
-           while i < len(num):
-                 if not visited[i]:
-                    visited[i] = True
-                    self.permuteUnique_rec(num, level + 1, visited, stk + [num[i]], res)
-                    visited[i] = False
-                    while i < len(num) - 1 and num[i] == num[i + 1]:
-                          i += 1
-                    i += 1
+
+    def dfs(self, nums, perm, perm_len, visited, res):
+        if perm_len == self.length:
+           res.append(perm)
+           return
+        for i in xrange(self.length):
+            if not visited[i]:
+               if i > 0 and visited[i - 1] == False and nums[i - 1] == nums[i]:
+                  continue
+               visited[i] = True
+               self.dfs(nums, perm + [nums[i]], perm_len + 1, visited, res)
+               visited[i] = False
 
 if __name__ == '__main__':
    s = Solution()

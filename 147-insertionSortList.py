@@ -7,8 +7,11 @@ class ListNode:
 class Solution:
     # @param {ListNode} head
     # @return {ListNode}
-    # Chris::TODO:check with the url, there is a detailed graph which help you understand so much:
+    
+    # Chris::TODO:check with the url, 
+    # there is a detailed graph which help you understand so much:
     # http://www.cnblogs.com/zuoyuan/p/3700105.html
+    
     def insertionSortList(self, head):
         if head is None:
            return head
@@ -39,7 +42,6 @@ class Solution:
 
 if __name__ == '__main__':
    s = Solution()
-   # test = [2, 4, 8, 1, 0, 5, 3, 9, 7]
    test = ListNode(1)
    test.next = ListNode(4)
    test.next.next = ListNode(0)

@@ -13,15 +13,6 @@ class Solution:
         self.nodes = []
     
     def connect(self, root):
-        if root is None or root.left is None:
-           return
-        root.left.next = root.right
-        if root.next:
-           root.right.next = root.next.left
-        self.connect(root.left)
-        self.connect(root.right)
-
-    def juniorConnect(self, root):
         self.dfs(root, 0)
     
     def dfs(self, root, level):
@@ -55,7 +46,7 @@ if __name__ == '__main__':
    test.left.right = TreeLinkNode(5)
    # test.right.left = TreeLinkNode(6)
    test.right.right = TreeLinkNode(7)
-   s.connect(test)
+   s.juniorConnect(test)
    s.print_link_tree(test)
 
 

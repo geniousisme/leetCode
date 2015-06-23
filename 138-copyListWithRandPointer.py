@@ -16,6 +16,7 @@ class Solution:
               dummy.next = tmp
               tmp.next = next
               dummy = next
+        
         return head
 
     def print_llst(self, head):

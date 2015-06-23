@@ -7,21 +7,26 @@ class ListNode:
 class Solution:
     # @param {ListNode} head
     # @return {ListNode}
+    # Chris::TODO:check with the url, there is a detailed graph which help you understand so much:
+    # http://www.cnblogs.com/zuoyuan/p/3700105.html
     def insertionSortList(self, head):
-        newhead = ListNode(-1); start = newhead.next = ListNode(head.val)
-        dummy = head.next
-        while dummy:
-              try:
-                  while newhead.next and dummy.val > newhead.next.val:
-                        newhead.next = newhead.next.next
-                  tmp = newhead.next.next
-                  newhead.next.next = ListNode(dummy.val)
-                  newhead.next.next.next = tmp
-                  newhead = start
-              except:
-                  newhead.next = ListNode(dummy.val)
-              dummy = dummy.next
-        return start
+        if head is None:
+           return head
+        current = head
+        dummy = ListNode(-999)
+        dummy.next = head
+        while current.next:
+              if current.next.val < current.val:
+                 pre = dummy
+                 while pre.next.val < current.next.val:
+                       pre = pre.next
+                 tmp = current.next
+                 current.next = tmp.next
+                 tmp.next = pre.next
+                 pre.next = tmp
+              else: # ascending, continue
+                 current = current.next
+        return dummy.next
 
     def print_llst(self, head):
         llst = ""
@@ -31,17 +36,6 @@ class Solution:
                  llst += '->'
               head = head.next
         print llst
-
-        # sorted_lst = [lst[0]]
-        # for i in xrange(1, len(lst)):
-        #     j = 0
-        #     try:
-        #         while lst[i] > sorted_lst[j]:
-        #               j += 1
-        #         sorted_lst.insert(j, lst[i])
-        #     except:
-        #         sorted_lst.append(lst[i])
-        # return sorted_lst
 
 if __name__ == '__main__':
    s = Solution()

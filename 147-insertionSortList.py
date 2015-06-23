@@ -8,20 +8,22 @@ class Solution:
     # @param {ListNode} head
     # @return {ListNode}
     def insertionSortList(self, head):
-        newhead = ListNode(-1); start = newhead.next = ListNode(head.val)
+        newhead = ListNode(-9999); newhead.next = ListNode(head.val)
+        new_tmp = newhead
         dummy = head.next
+        # self.print_llst(start)
         while dummy:
-              try:
-                  while newhead.next and dummy.val > newhead.next.val:
-                        newhead.next = newhead.next.next
-                  tmp = newhead.next.next
-                  newhead.next.next = ListNode(dummy.val)
-                  newhead.next.next.next = tmp
-                  newhead = start
-              except:
-                  newhead.next = ListNode(dummy.val)
+              print 'dummy', dummy.val
+              while new_tmp.next and dummy.val > new_tmp.next.val:
+                    new_tmp.next = new_tmp.next.next
+              # self.print_llst(start)
+              tmp = new_tmp.next
+              new_tmp.next = ListNode(dummy.val)
+              new_tmp.next.next = tmp
+              self.print_llst(newhead)
+              new_tmp.next = newhead
               dummy = dummy.next
-        return start
+        return newhead
 
     def print_llst(self, head):
         llst = ""
@@ -31,17 +33,6 @@ class Solution:
                  llst += '->'
               head = head.next
         print llst
-
-        # sorted_lst = [lst[0]]
-        # for i in xrange(1, len(lst)):
-        #     j = 0
-        #     try:
-        #         while lst[i] > sorted_lst[j]:
-        #               j += 1
-        #         sorted_lst.insert(j, lst[i])
-        #     except:
-        #         sorted_lst.append(lst[i])
-        # return sorted_lst
 
 if __name__ == '__main__':
    s = Solution()

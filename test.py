@@ -1,24 +1,23 @@
-class Solution:
-    # @param A, a list of integers
-    # @return an integer
-    def firstMissingPositive(self, A):
-        i = 0
-        while i < len(A):
-            if 1 <= A[i] <= len(A) and A[A[i]-1] != A[i]:
-                A[A[i]-1], A[i] = A[i], A[A[i]-1]
-            else:
-                i += 1
-        print A
-        i = 0
-        while i < len(A):
-            if A[i] != i+1:
-                return i+1
-            i += 1
-        return i+1
+def merge_sort(lst):
+    if len(lst) == 1:
+       return lst
+    middle = len(lst) / 2
+    left = merge_sort(lst[:middle])
+    right = merge_sort(lst[middle:])
+    # print 'left', left
+    # print 'right', right
+    return merge(left, right)
+
+def merge(left, right):
+    merged = []
+    while left and right:
+          if left[0] <= right[0]:
+             merged.append(left.pop(0))
+          else:
+             merged.append(right.pop(0))
+    merged.extend(left)
+    merged.extend(right)
+    return merged
 
 if __name__ == '__main__':
-   s = Solution()
-   # print s.get_max_min([3,4,-1,1])
-   print s.firstMissingPositive([1,2,0])
-   print s.firstMissingPositive([3,4,-1,1])
-   print s.firstMissingPositive([3,0, 5, 10])
+   print merge_sort([1, 4, 2, 3, 6, 9, 0, 5, 10])

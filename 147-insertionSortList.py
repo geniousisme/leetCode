@@ -13,6 +13,24 @@ class Solution:
     # http://www.cnblogs.com/zuoyuan/p/3700105.html
     
     def insertionSortList(self, head):
+
+        # newhead = ListNode(-9999); newhead.next = ListNode(head.val)
+        # new_tmp = newhead
+        # dummy = head.next
+        # # self.print_llst(start)
+        # while dummy:
+        #       print 'dummy', dummy.val
+        #       while new_tmp.next and dummy.val > new_tmp.next.val:
+        #             new_tmp.next = new_tmp.next.next
+        #       # self.print_llst(start)
+        #       tmp = new_tmp.next
+        #       new_tmp.next = ListNode(dummy.val)
+        #       new_tmp.next.next = tmp
+        #       self.print_llst(newhead)
+        #       new_tmp.next = newhead
+        #       dummy = dummy.next
+        # return newhead
+
         if head is None:
            return head
         current = head

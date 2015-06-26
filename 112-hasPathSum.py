@@ -23,6 +23,7 @@ class Solution:
         else:
            return self.pathSumCheck(node.right, curr_sum, goal_sum) or \
                   self.pathSumCheck(node.left,  curr_sum, goal_sum) 
+                  
 
 if __name__ == '__main__':
    s = Solution()

@@ -2,6 +2,9 @@ class Solution:
     # @param {string} s
     # @param {string} t
     # @return {integer}
+
+    # Chris::TODO:Inference Process, really clear!! 
+    # http://blog.csdn.net/abcbc/article/details/8978146
     def numDistinct(self, s, t):
         slen = len(s); tlen = len(t)
         dp = [[0 for j in xrange(tlen + 1)] for i in xrange(slen + 1)]

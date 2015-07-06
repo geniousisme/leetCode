@@ -2,9 +2,10 @@ class Solution:
     # @param {integer} numCourses
     # @param {integer[][]} prerequisites
     # @return {boolean}
-    def canFinish(self, numCourses, prerequisites):
+    def findOrder(self, numCourses, prerequisites):
         degrees  = [0 for i in xrange(numCourses)]
         children = [[] for i in xrange(numCourses)]
+        order    = []
         for pre in prerequisites:
             degrees[pre[0]] += 1
             children[pre[1]].append(pre[0])
@@ -21,15 +22,14 @@ class Solution:
                      removelist.append(course)
                      cycle_flag = True
               for course in removelist:
-                  print course
+                  order.append(course)
                   courses.remove(course)
-        return courses == []
-
+        return [[], order][courses == []]
 
 if __name__ == '__main__':
    s = Solution()
-   print s.canFinish(2, [[1, 0]])
-   print s.canFinish(2, [[0, 1]])
-   print s.canFinish(2, [[1, 0], [0, 1]])
+   print s.findOrder(2, [[1, 0]])
+   print s.findOrder(2, [[0, 1]])
+   print s.findOrder(2, [[1, 0], [0, 1]])
    
 

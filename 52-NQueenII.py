@@ -23,6 +23,20 @@ class Solution:
             if self.board[k] == row or abs(col - k) == abs(row - self.board[k]):
                return False
         return True
+    def iterativeNQueens(self):
+        col = row = count = 0
+
+        while col < n:
+              while row < n:
+                    if self.queen_judge(col, row):
+                       self.board[col] = row
+                       row += 1
+              row = 0
+              col += 1
+
+
+
+
 
 if __name__ == '__main__':
    s = Solution()

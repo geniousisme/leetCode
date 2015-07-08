@@ -23,6 +23,7 @@ class Solution:
             if self.board[k] == row or abs(col - k) == abs(row - self.board[k]):
                return False
         return True
+    
     def iterativeNQueens(self):
         col = row = count = 0
 
@@ -33,9 +34,6 @@ class Solution:
                        row += 1
               row = 0
               col += 1
-
-
-
 
 
 if __name__ == '__main__':

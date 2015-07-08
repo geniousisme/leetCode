@@ -3,22 +3,18 @@ class Solution:
     # @param {integer} k
     # @param {integer} t
     # @return {boolean}
+    import collections
+    # Chri:TODO:: read this website again: http://bookshadow.com/weblog/2015/06/03/leetcode-contains-duplicate-iii/
     def containsNearbyAlmostDuplicate(self, nums, k, t):
         if k < 1 or t < 0:
            return False
-        numDict = collections.OrderedDict()
-        length = len(nums)
-        
-        for j in xrange(length):
-            key = nums[j] / max(1, t)
+        num_dict = collections.OrderedDict()
+        for j in xrange(len(nums)):
+            key = nums[j] / t
             for i in [key - 1, key, key + 1]:
-                if i in numDict and abs(numDict[i] - nums[j]) <= t:
+                if i in num_dict and abs(num_dict[i] - nums[j]) <= t:
                    return True
-            numDict[key] = nums[j]
-            if j >= k:
-               numDict.popitem(last=False)
+            num_dict[key] = nums[j]
+            if x >= k:
+               num_dict.popitem(last=False)
         return False
-
-
-
-        

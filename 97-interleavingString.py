@@ -3,6 +3,9 @@ class Solution:
     # @param {string} s2
     # @param {string} s3
     # @return {boolean}
+    # both solution are good:
+    # http://www.cnblogs.com/zuoyuan/p/3767650.html
+    # http://chaoren.is-programmer.com/posts/42770.html
     def isInterleave(self, s1, s2, s3):
         len1 = len(s1); len2 = len(s2); len3 = len(s3)
         if len1 + len2 != len3:

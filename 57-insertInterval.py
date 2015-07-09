@@ -11,14 +11,6 @@ class Solution:
     def insert(self, intervals, newInterval):
         length = len(intervals)
         intervals.append(newInterval)
-        # for i in xrange(length):
-        #     if intervals[i].start >= newInterval.start:
-        #        intervals.insert(i, newInterval)
-        #        newInterval = None
-        #        break
-        # if newInterval:
-        #    intervals.append(newInterval)
-        # self.print_intervals(intervals)
         intervals.sort(key=lambda start : start.start)
 
         last = length

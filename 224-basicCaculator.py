@@ -2,37 +2,42 @@ class Solution:
     # @param {string} s
     # @return {integer}
     def calculate(self, s):
-        ans = 0
-        stack = []
-        s = s + ' '
         length = len(s)
-        numStart = -1; numEnd = length
-        last = 1
+        if length == 0: return 0
+        ans = 0
+        num = ''
+        stack = []
+        sign = 1
+
         for i in xrange(length):
-            # print 's', s[i]
-            if s[i] in '0123456789':
-               if numEnd < 0:
-                  continue
-               # print 's: |' + s[i] + '|'
-               numStart = i
-               numEnd   = -1
-            else:
-               
-               if numStart < 0:
-                  if s[i] == '-':
-                     last = -1
-                  continue
-               numEnd = i
-               if s[numStart:numEnd]:
-                  # print 'numStart', numStart
-                  # print 'i', i
-                  ans += last * int(s[numStart:i])
-                  numStart = -1
-                  last = 1
-               if s[i] == '-':
-                  last = -1
-            # print stack
-            # print '----------------'          
+            if '9' >= s[i] >= '0':
+               num += s[i]
+            
+            elif s[i] == '+':
+                 ans += sign * int(num)
+                 sign = 1
+                 num  = ''
+
+            elif s[i] == '-':
+                 ans += sign * int(num)
+                 sign = -1
+                 num  = ''
+            
+            elif s[i] == '(':
+                 stack.append(ans)
+                 stack.append(sign)
+                 sign = 1
+                 ans  = 0
+
+            elif s[i] == ')':
+                 ans += sign * int(num)
+                 sign = stack.pop()
+                 ans  = sign * ans + stack.pop()
+                 num  = 0
+
+        if num != 0:
+           ans += sign * int(num)
+
         return ans
                  
            

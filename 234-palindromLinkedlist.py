@@ -26,8 +26,6 @@ class Solution:
               idx  -= 1
         return True 
 
-
-
     def print_llst(self, head):
         llst = ""
         while head:

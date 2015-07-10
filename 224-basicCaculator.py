@@ -1,6 +1,8 @@
 class Solution:
     # @param {string} s
     # @return {integer}
+    # Chris::TODO: take this as reference:
+    # http://www.wengweitao.com/leetcode-basic-calculator.html
     def calculate(self, s):
         length = len(s)
         if length == 0: return 0
@@ -39,9 +41,6 @@ class Solution:
            ans += sign * int(num)
 
         return ans
-                 
-           
-
             
 
 if __name__ == '__main__':

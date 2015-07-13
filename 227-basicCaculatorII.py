@@ -10,11 +10,21 @@ class Solution:
         num = ''
         stack = []
         sign = 1
+        op   = 0
 
         for i in xrange(length):
             if '9' >= s[i] >= '0':
                num += s[i]
             
+            if   op == 0:
+                 ans = 
+            elif op == 1:
+                 ans = last_num * i
+            elif op == 2:
+                 ans = 
+            else: # op == 3:
+                 ans = 
+
             elif s[i] == '+':
                  ans += sign * int(num)
                  sign = 1

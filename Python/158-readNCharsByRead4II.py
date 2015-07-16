@@ -19,6 +19,8 @@ class Solution:
     # @param buf, Destination buffer (a list of characters)
     # @param n,   Maximum number of characters to read (an integer)
     # @return     The number of characters read (an integer)
+    # Chris:TODO::review it again! just copy from clean code
+    
     def __init__(self):
         self.buffer = ['', '', '', '']
         self.offset = self.bufsize = 0

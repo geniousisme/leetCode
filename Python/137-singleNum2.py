@@ -37,7 +37,9 @@ class Solution:
     '''
     #Chris::TODO:need to read one more time in review, cool stuff.
     #Chris::NTR!!
-
+    #Chris::想像成是三位元的進位會比較好理解
+    #one: 只有出現一次的數，出現三次＆一次對 XOR 來說都會復原，所以 one 用 XOR
+    #two: 出現第二遍的數，高位元，根據 one 的結果保留原本是 1 的位元
     def singleNumber(self, A):
         one = 0; two = 0; three = 0
         for i in range(len(A)):

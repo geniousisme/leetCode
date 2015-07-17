@@ -36,17 +36,26 @@ class Solution:
     那么最后剩下的是01，也就是1。如果位数更多，可以以此类推。程序中的one相当于bit1，two相当于bit2。
     '''
     #Chris::TODO:need to read one more time in review, cool stuff.
+    #Chris::NTR!!
+
     def singleNumber(self, A):
         one = 0; two = 0; three = 0
         for i in range(len(A)):
             two |= A[i] & one   #two为1时，不管A[i]为什么，two都为1
+            # print 'two', bin(two)
             one = A[i] ^ one    #异或操作，都是1就进位
+            # print 'one', bin(one)
             three = ~(one & two)#以下三步的意思是：如果one和two都为1时，就清0，反之则保持原来状态。
+            # print 'three', bin(three)
             one &= three
+            # print '# one:', bin(one)
             two &= three
+            # print '# two:', bin(two)
+            # print '=================='
         return one
 
 if __name__ == '__main__':
    s = Solution()
-   test = [1, 1, 1, 2, 2, 3, 2, 3, 4, 4, 5, 5, 6, 7, 6, 7, 6, 7, 4, 5, 3, 8]
+   # test = [1, 1, 1, 2, 2, 3, 2, 3, 4, 4, 5, 5, 6, 7, 6, 7, 6, 7, 4, 5, 3, 8]
+   test = [1, 1, 1, 2, 2, 2, 3]
    print s.singleNumber(test)

@@ -39,7 +39,6 @@ public:
                 if (tmp_q->val != tmp_p->val) return false;
                 // if (!tmp_q || !tmp_p) return false;
 
-
                 pqueue.push(tmp_p->left);
                 pqueue.push(tmp_p->right);
                 qqueue.push(tmp_q->left);

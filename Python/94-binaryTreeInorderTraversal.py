@@ -22,4 +22,16 @@ class Solution:
            self.res.append(node.val)
            self.recursive_traverse(node.right)
         return
+
+    def iterTraverse(self, root):
+        while root or self.stack:
+              if root:
+                 self.stack.append(root)
+                 root = root.left
+              else:
+                 root = self.stack.pop()
+                 self.res.append(root.val)
+                 root = root.right
+        return
+
   

@@ -27,18 +27,18 @@ public:
                     // let the latest element compare with the current elems in window
                     // notice that dequeu(windown) only store the index of nums, not the value.
                     // if the latest one bigger than current elems, remove the current element
-                    while (!dq.empty() && nums[dq.back()] <= nums[i]) {
-                           dq.pop_back();
-                    };
-                    // keep the length of window
-                    dq.push_back(i);
-                    if (dq.front() == i - k) {
-                        dq.pop_front();
-                    };
-                    // since above code, the biggest one is always at the beginning of window
-                    if (i - k + 1 >= 0) {
-                        res.push_back(nums[dq[0]]);
-                    };
+                     while (!dq.empty() && nums[dq.back()] <= nums[i]) {
+                            dq.pop_back();
+                     };
+                     // keep the length of window
+                     dq.push_back(i);
+                     if (dq.front() == i - k) {
+                         dq.pop_front();
+                     };
+                     // since above code, the biggest one is always at the beginning of window
+                     if (i - k + 1 >= 0) {
+                         res.push_back(nums[dq[0]]);
+                     };
                 };
                 return res;
     }

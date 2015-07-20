@@ -3,6 +3,8 @@ from heapq import *
 class Solution:
 
 '''
+Chris::TODO:NTR!!!
+
 This is a Python version of my modification of dong.wang.1694's C++ solution.
 It sweeps from left to right. But it doesn't only keep heights of 
 "alive buildings" in the priority queue ,

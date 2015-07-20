@@ -17,13 +17,12 @@ class Solution:
         if nums:
            for i in xrange(len(nums) - k + 1):
                tmp = nums[i:i + k]
-               print tmp
+               # print tmp
                heapq.heapify(tmp)
                # print 'after:', tmp
                res.append(tmp[-1])
         return res
 
-    
     def maxSlidingWindow(self, nums, k):
         res = []
         dq  = deque() 

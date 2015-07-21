@@ -22,7 +22,7 @@ class Solution:
                # print 'after:', tmp
                res.append(tmp[-1])
         return res
-
+    # Chris::TODO:NTR!!
     def maxSlidingWindow(self, nums, k):
         res = []
         dq  = deque() 

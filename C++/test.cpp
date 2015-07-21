@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <vector>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -17,7 +18,19 @@ public:
     void test(vector<int>& v, TreeNode* t){
          // cout << "v: " << v << endl;
          cout << "&v: " << &v << endl;
-         cout << "*v: " << v << endl;
+         // cout << "*v: " << v << endl;
+    }
+    void test2(vector<int>& v) {
+         for (int i = 0; i < 10; i++) {
+              v.push_back(i);
+         };
+         for (int i = 0; i < v.size(); i++){
+              cout << "begin: " << *v.begin() << endl;
+              v.erase(v.begin());
+              cout << "v[" << i << "]: " << v[i] << endl;
+              cout << "size: " << v.size() << endl; 
+         }
+         return;
     }
 
 };
@@ -27,9 +40,11 @@ public:
 int main(){
     int arr [] = {1, 2, 3, 4, 5};
     vector<int> iarr(arr, arr + 5);
+    vector<int> lalala;
     Test ts;
     TreeNode* tt;
-    ts.test(iarr, tt);
+    // ts.test(iarr, tt);
+    ts.test2(lalala);
     // TreeNode root = TreeNode(1);
     // TreeNode *root_node = &root;
     // TreeNode left_node = TreeNode(2);

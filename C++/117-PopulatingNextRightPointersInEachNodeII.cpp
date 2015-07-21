@@ -33,15 +33,15 @@ public:
     //Chris:TODO::NTR, need to use drawing to simulate the traversal.
     void iterConnect(TreeLinkNode *root) {
          if (!root) {
-            return;
-         }
-         TreeLinkNode *curr = root, *nxt = nullptr, *last = nullptr;
+             return;
+         };
+         TreeLinkNode *curr = root, *nxt_lv = nullptr, *last = nullptr;
          while (curr) {
-                if (!nxt) {
+                if (!nxt_lv) {
                     if (curr->left) {
-                        nxt = curr->left;
+                        nxt_lv = curr->left;
                     } else if (curr->right) {
-                        nxt = curr->right;
+                        nxt_lv = curr->right;
                     };
                 };
                 if (curr->left) {
@@ -50,20 +50,20 @@ public:
                     };
                     last = curr->left;
                 };
-
                 if (curr->right) {
                     if (last) {
                         last->next = curr->right;
                     };
                     last = curr->right;
-                };
+                };  
                 if (curr->next) {
                     curr = curr->next;
                 } else {
-                    curr = nxt;
-                    nxt  = nullptr;
-                    last = nullptr; 
+                    curr   = nxt_lv;
+                    nxt_lv = nullptr;
+                    last   = nullptr;
                 };
+
          };
          return;
     }

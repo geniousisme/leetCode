@@ -25,7 +25,7 @@ public:
          };
          return;
     }
-    void connect(TreeLinkNode *root) {
+    void recConnect(TreeLinkNode *root) {
          if (root && root->left) { 
              // since it is prefect binary tree, no left node = no right node.
              root->left->next = root->right;

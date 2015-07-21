@@ -12,14 +12,24 @@ class Solution:
     def __init__(self):
         self.nodes = []
     
+    # def connect(self, root):
+    #     if root is None or root.left is None:
+    #        return
+    #     root.left.next = root.right
+    #     if root.next:
+    #        root.right.next = root.next.left
+    #     self.connect(root.left)
+    #     self.connect(root.right)
+    
     def connect(self, root):
-        if root is None or root.left is None:
-           return
-        root.left.next = root.right
-        if root.next:
-           root.right.next = root.next.left
-        self.connect(root.left)
-        self.connect(root.right)
+        if root:
+           if root.left:
+              root.left.next = root.right
+           if root.right and root.next:
+              root.right.next = root.next.left
+           self.connect(root.left)
+           self.connect(root.right)
+        return
 
     def juniorConnect(self, root):
         self.dfs(root, 0)
@@ -53,7 +63,7 @@ if __name__ == '__main__':
    test.right = TreeLinkNode(3)
    test.left.left = TreeLinkNode(4)
    test.left.right = TreeLinkNode(5)
-   # test.right.left = TreeLinkNode(6)
+   test.right.left = TreeLinkNode(6)
    test.right.right = TreeLinkNode(7)
    s.connect(test)
    s.print_link_tree(test)

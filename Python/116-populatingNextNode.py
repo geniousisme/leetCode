@@ -12,16 +12,16 @@ class Solution:
     def __init__(self):
         self.nodes = []
     
-    # def connect(self, root):
-    #     if root is None or root.left is None:
-    #        return
-    #     root.left.next = root.right
-    #     if root.next:
-    #        root.right.next = root.next.left
-    #     self.connect(root.left)
-    #     self.connect(root.right)
-    
     def connect(self, root):
+        if root is None or root.left is None:
+           return
+        root.left.next = root.right
+        if root.next:
+           root.right.next = root.next.left
+        self.connect(root.left)
+        self.connect(root.right)
+    
+    def connectII(self, root):
         if root:
            if root.left:
               root.left.next = root.right

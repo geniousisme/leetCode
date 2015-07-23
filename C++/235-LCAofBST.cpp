@@ -8,6 +8,8 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+//Chris: NTR
+
 struct TreeNode {
        int val;
        TreeNode *left;

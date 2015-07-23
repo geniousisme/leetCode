@@ -6,6 +6,8 @@
 
 using namespace std;
 
+// Chris:NTR
+
 class Solution {
 public:
     bool containsNearbyAlmostDuplicateI(vector<int>& nums, int k, int t) {

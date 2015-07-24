@@ -22,21 +22,22 @@ public:
               };
               return head;
     }
-    void printLinkedList(ListNode *head) {
-         string llst = "";
-         while (head) {
-                cout << head->val;
-                if (head->next) {
-                    cout << " <- "; 
-                };
-                head = head->next;
-         };
-         cout << endl;   
-    }
+    // void printLinkedList(ListNode *head) {
+    //      string llst = "";
+    //      while (head) {
+    //             cout << head->val;
+    //             if (head->next) {
+    //                 cout << " <- "; 
+    //             };
+    //             head = head->next;
+    //      };
+    //      cout << endl;   
+    // }
 };
 
 int main(void) {
     Solution s;
+    Utils utils;
     struct ListNode test(1);
     struct ListNode t1(1);
     struct ListNode t2(2);
@@ -46,6 +47,8 @@ int main(void) {
     (&test)->next->next = &t2;
     (&test)->next->next->next = &t3;
     (&test)->next->next->next->next = &t4;
-    s.printLinkedList(s.deleteDuplicates(&test));
+    // utils.printLinkedList(s.deleteDuplicates(&test));
+    utils.printLinkedList(&test);
+
     return 0;
 };

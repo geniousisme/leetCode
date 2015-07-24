@@ -12,7 +12,7 @@ public:
                 p_target = target;
                 res.push_back(findLeftMost(nums,  target));
                 res.push_back(findRightMost(nums, target));
-                cout << "res: " << res[0] << " " << res[1] << endl;
+                // cout << "res: " << res[0] << " " << res[1] << endl;
                 return res;
     }
 private:
@@ -54,7 +54,6 @@ private:
             return -1;
         };
     }
-
     int startBinarySearch(vector<int>& nums, int start, int end) {
         if (end - start == 1) {
             if  (nums[end] == p_target && nums[start] < p_target) {

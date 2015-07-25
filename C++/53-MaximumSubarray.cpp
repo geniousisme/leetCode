@@ -4,27 +4,26 @@
 // Chris::NTR!
 class Solution {
 public:
-    int maxSubArray(vector<int>& nums) {
-        vector<int> res;
-        int pre_sum = 0, max_sum = -9999;
-        // res.push_back(nums[0]);
-        for (int i = 0; i < nums.size(); i++){
-            // pre_sum = 
-            // int tmp [] = {res[i - 1], nums[i], pre_sum};
-            if (pre_sum < 0) {
-                pre_sum = 0;
-            };
-            // res.push_back(max(, ));
-            pre_sum += nums[i];
-            max_sum = max(pre_sum, max_sum);
-            // cout << "max_sum " << max_sum << endl;
-            // pre_sum += nums[i];
+    int maxSubArrayI(vector<int>& nums) {
+        int last_sum = 0, max_sum = -9999;
+        for (int i = 0; i < nums.size(); i++) {
+             if (last_sum < 0) {
+                 last_sum = 0;
+             };
+             last_sum += nums[i];
+             max_sum = max(last_sum, max_sum);
         };
-        // for (int i = 0; i < res.size(); i++) cout << res[i] << " ";
-        // cout << endl;
-        // return res[nums.size() - 1];
         return max_sum;
     }
+    int maxSubArray(vector<int>& nums) {
+        int last_sum = 0, max_sum = -9999;
+        for (int i = 0; i < nums.size(); i++) {
+             last_sum = max(last_sum + nums[i], nums[i]);
+             max_sum = max(last_sum, max_sum);
+        };
+        return max_sum;
+    }
+
 };
 
 int main(void) {

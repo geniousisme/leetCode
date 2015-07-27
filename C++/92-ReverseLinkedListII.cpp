@@ -28,6 +28,7 @@ public:
     }
     ListNode* reverseList(ListNode* head, int& count, int n) {
               struct ListNode *newHead = nullptr, *headNext, *newEnd = head;
+              // reverse the linked list
               while (count < n + 1 && head) {
                      count++;
                      headNext   = head->next;
@@ -35,7 +36,10 @@ public:
                      newHead    = head;
                      head       = headNext;
               };
+              // let the end to connect with the latest node
               newEnd->next = headNext;
+              // dont need to traverse from the head, comment the following code
+              
               // tmpHead = newHead;
               // if (headNext) {
               //     while (tmpHead->next) {

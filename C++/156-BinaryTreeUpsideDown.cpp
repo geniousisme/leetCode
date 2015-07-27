@@ -17,12 +17,19 @@ public:
               struct TreeNode *parentLeft = nullptr;
               struct TreeNode *rootLeft, *rootRight;
               while (root) {
-                     rootLeft  = root->left;
-                     rootRight = root->right;
-                     root->left = parentLeft;
+                     // store the value first
+                     rootLeft    = root->left;
+                     rootRight   = root->right;
+                     
+                     // assign new value to root
+                     root->left  = parentLeft;
                      root->right = parent;
-                     parent = root;
-                     parentLeft = rootRight;
+                     
+                     //store the value for the next root
+                     parent      = root;
+                     parentLeft  = rootRight;
+                     
+                     // move the next root
                      root = rootLeft;
               };
               return parent;

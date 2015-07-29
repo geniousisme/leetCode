@@ -7,6 +7,7 @@
 #include <assert.h>
 #include <limits.h>
 #include <string.h>
+#include <ctype.h>
 
 // C++ Library
 #include <iostream>
@@ -18,6 +19,7 @@
 #include <queue>
 #include <deque>
 #include <limits>
+#include <locale>
 #include <sstream>
 #include <unordered_map>
 

@@ -13,14 +13,12 @@ public:
          if (head == nullptr) {
              return true;
          };
-
          // look for the mid point
          struct ListNode *slow = head, *fast = head; 
          while (fast->next && fast->next->next) {
                 slow = slow->next;
                 fast = fast->next->next;
          };
-         
          // reverse the second half linked list 
          struct ListNode *last = nullptr, *tmp = slow->next, *tmpNext;
          while (tmp) {
@@ -29,7 +27,6 @@ public:
                 last      = tmp;
                 tmp       = tmpNext;
          };
-
          // then, test if second half llst match all value of the first half llst value.
          // if it meets all then it will ends at null, so check if ptr == null, it is palindrom
          // if it doesn't meet, then it will break and it will not equal to null, return false

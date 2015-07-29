@@ -24,7 +24,7 @@ public:
          };
          return true;
     }
-    bool isAlphabetic(char c) {
+    bool isAlphabetic(char c) { // only consider lower case
          int int_c = c;
          if (int_c < 97) {
              int_c += 32;

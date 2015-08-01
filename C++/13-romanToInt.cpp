@@ -17,13 +17,14 @@ public:
         return res;
     }
 private:
+    // really fast way to use initialize table.
     int romanTable[255];
     void init(void) {
          romanTable['I'] = 1, romanTable['V'] = 5, romanTable['X'] = 10;
          romanTable['L'] = 50, romanTable['C'] = 100, romanTable['D'] = 500;
          romanTable['M'] = 1000;
     };
-    
+    // unordered_map is slower.
     // unordered_map<char, int> romanTable =                                  \
     //           {                                                            \
     //            {'I', 1},  {'V', 5},   {'X', 10},                           \

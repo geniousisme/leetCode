@@ -7,8 +7,8 @@ class Utils {
 public: 
     Utils();
     ~Utils();
-    void printLinkedList(ListNode* head); 
-    void printIntVector(vector<int>&);
+    void printLinkedList(ListNode*); 
+    void printIntVector(vector<int>);
     void printStrVector(vector<string>&);
     void printTree(TreeNode*); 
 };

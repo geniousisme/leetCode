@@ -47,8 +47,8 @@ int main(void) {
     (&test)->next->next = &t2;
     (&test)->next->next->next = &t3;
     (&test)->next->next->next->next = &t4;
-    // utils.printLinkedList(s.deleteDuplicates(&test));
-    utils.printLinkedList(&test);
+    utils.printLinkedList(s.deleteDuplicates(&test));
+    // utils.printLinkedList(&test);
 
     return 0;
 };

@@ -19,3 +19,8 @@ void Utils::printLinkedList(ListNode* head) {
      };
      cout << endl;
 }
+
+void Utils::printIntVector(vector<int> nums) {
+     for(int i = 0; i < nums.size(); i++) cout << nums[i] << " ";
+     cout << endl;
+}

@@ -7,7 +7,6 @@ class Solution(object):
         if num < 1:
            return False
         while num > 1:
-              print "num", num
               if num % 2 == 0:
                  num /= 2
                  continue

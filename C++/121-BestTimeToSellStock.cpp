@@ -6,17 +6,16 @@ public:
         if (prices.empty()) {
             return 0;
         };
-        int max = prices[0], min = prices[0], profit = 0;
-        for(int i = 1; i < prices.size(); i++) {
-            if (prices[i] > max) {
-                max = prices[i];
+        int min = prices[0], maxProfit = 0;
+        for(int i = 0; i < prices.size(); i++) {
+            if (min > prices[i]) {
+                min = prices[i];
             };
-            if(prices[i] < min) {
-               min = prices[i];
-            };
-            profit = max - min;
+            if (maxProfit < prices[i] - min) {
+                maxProfit = prices[i] - min;
+            }
         };
-        return profit;
+        return maxProfit;
     }
 };
 
@@ -25,5 +24,11 @@ int main(void) {
     int arr [] = {4, 5, 2, 6, 9};
     vector<int> iarr(arr, arr + 5);
     cout << s.maxProfit(iarr) << endl;
+    int arr1 [] = {9, 2};
+    vector<int> iarr1(arr1, arr1 + 2);
+    cout << s.maxProfit(iarr1) << endl;
+    int arr2 [] = {9};
+    vector<int> iarr2(arr2, arr2 + 1);
+    cout << s.maxProfit(iarr2) << endl;
     return 0;
 };

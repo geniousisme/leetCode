@@ -13,7 +13,7 @@ void Utils::printLinkedList(ListNode* head) {
      while (head) {
             cout << head->val;
             if (head->next) {
-                cout << " <- "; 
+                cout << " -> "; 
             };
             head = head->next;
      };
@@ -22,5 +22,10 @@ void Utils::printLinkedList(ListNode* head) {
 
 void Utils::printIntVector(vector<int> nums) {
      for(int i = 0; i < nums.size(); i++) cout << nums[i] << " ";
+     cout << endl;
+}
+
+void Utils::printStrVector(vector<string> strs) {
+     for(int i = 0; i < strs.size(); i++) cout << strs[i] << " ";
      cout << endl;
 }

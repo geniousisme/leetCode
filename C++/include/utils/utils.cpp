@@ -25,7 +25,7 @@ void Utils::printIntVector(vector<int> nums) {
      cout << endl;
 }
 
-void Utils::printInt2DVector(vector<vector<int> > twoDNums) {
+void Utils::print2DIntVector(vector<vector<int> > twoDNums) {
      for(int i = 0; i < twoDNums.size(); i++) {
          cout << "[";
          for (int j = 0; j < twoDNums[i].size(); j++) {

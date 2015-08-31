@@ -2,7 +2,7 @@
 
 class Solution {
 public:
-    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+    void mergeI(vector<int>& nums1, int m, vector<int>& nums2, int n) {
          int idx1 = 0, idx2 = 0, i = 0, total_len = m + n;
          while (idx1 < m) {
                 nums1.push_back(nums1[idx1]);
@@ -21,16 +21,32 @@ public:
                 };
                 i++;
          };
-         // cout << "idx2: " << idx2 << endl;
-         // cout << nums2[idx2] << endl;
-         // cout << "n: " << n << endl;         
          while (idx2 < n) {
-                // cout << "nums2[" << idx2 << "]: " << nums2[idx2] << endl;
                 nums1[total_len + idx2 - n] = nums2[idx2];
                 idx2++;
          };
     }
+    // directly merge from the last pos. use the property that they are sorted.
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+         int idx1 = m - 1, idx2 = n - 1, total_idx = m + n - 1;
+         while (idx1 > -1 && idx2 > -1) {
+                if (nums1[idx1] > nums2[idx2]) {
+                    nums1[total_idx] = nums1[idx1];
+                    idx1--;   
+                }
+                else {
+                    nums1[total_idx] = nums2[idx2];
+                    idx2--;   
+                }
+                total_idx--;
+         }
+         while (idx2 > -1) {
+                nums1[total_idx] = nums2[idx2];
+                idx2--;
+         };
+    }
 };
+
 
 int main(void) {
     Solution s;

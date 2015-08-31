@@ -9,7 +9,7 @@ public:
     ~Utils();
     void printLinkedList(ListNode*); 
     void printIntVector(vector<int>);
-    void printInt2DVector(vector<vector<int> >);
+    void print2DIntVector(vector<vector<int> >);
     void printStrVector(vector<string>);
     void printTree(TreeNode*); 
 };

@@ -4,6 +4,9 @@ class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
         p_target = target;
+        if (nums.empty()) {
+            return 0;
+        };
         if (target < nums[0]) {
             return 0;
         }

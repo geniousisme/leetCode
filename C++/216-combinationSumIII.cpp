@@ -4,7 +4,7 @@ public:
         
     }
 private:
-    void combSumHelper(vector<vector<int> >& res, vector<int>& comb, ) {
+    void combSumHelper(vector<vector<int> >& res, vector<int>& comb, int int start) {
 
     }
 };

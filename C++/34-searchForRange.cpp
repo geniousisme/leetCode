@@ -9,51 +9,69 @@ public:
                 return res;
     }
     vector<int> searchRange(vector<int>& nums, int target) {
-                p_target = target;
-                res.push_back(findLeftMost(nums,  target));
-                res.push_back(findRightMost(nums, target));
-                // cout << "res: " << res[0] << " " << res[1] << endl;
+                vector<int> res;
+                if (nums.empty()) {
+                    res.push_back(-1);
+                    res.push_back(-1);
+                }
+                else {
+                    // cout << "findRightMost: " << findRightMost(nums, 0, nums.size() - 1, target) << endl;
+                    // cout << "findLeftMost : " << findLeftMost(nums,  0, nums.size() - 1, target) << endl;
+                    res.push_back(findLeftMost(nums,  0, nums.size() - 1, target));
+                    res.push_back(findRightMost(nums, 0, nums.size() - 1, target));
+                    // cout << "res: " << res[0] << " " << res[1] << endl;
+                };
                 return res;
     }
 private:
     int p_target;
     vector<int> res;
-    int findRightMost(vector<int>& nums, int target) {
-        int start = 0, end = nums.size() - 1;
-        while (start <= end) {
-               int mid = start + (end - start) / 2;
-               if (nums[mid] > target) {
-                   end = mid - 1;
+    int findRightMost(vector<int>& nums, int start, int end, int target) {
+        int mid;
+        while (start < end - 1) {
+               mid = (start + end) / 2;
+               if (nums[mid] < target) {
+                   start = mid;                   
+               }
+               else if (nums[mid] > target) {
+                        end = mid;
                }
                else {
-                   start = mid + 1;
+                   start = mid;
                };
         };
-        if (end >= 0 && end < nums.size() && nums[end] == target) {
+        if (nums[end] == target) {
             return end;
-        }
-        else {
-            return -1;
         };
+        if (nums[start] == target) {
+            return start;
+        };
+        return -1;
     }
-    int findLeftMost(vector<int>& nums, int target) {
-        int start = 0, end = nums.size() - 1;
-        while (start <= end) {
-               int mid = start + (end - start) / 2;
-               if (target > nums[mid]) {
-                   start = mid + 1;
+
+    int findLeftMost(vector<int>& nums, int start, int end, int target) {
+        int mid;
+        while (start < end - 1) {
+               mid = (start + end) / 2;
+               if (nums[mid] < target) {
+                   start = mid;                   
+               }
+               else if (nums[mid] > target) {
+                        end = mid;
                }
                else {
-                   end = mid - 1;
-               }
+                   end = mid;
+               };
         };
-        if (start >= 0 && start < nums.size() && nums[start] == target) {
+        if (nums[start] == target) {
             return start;
-        }
-        else {
-            return -1;
         };
+        if (nums[end] == target) {
+            return end;
+        };
+        return -1;
     }
+    
     int startBinarySearch(vector<int>& nums, int start, int end) {
         if (end - start == 1) {
             if  (nums[end] == p_target && nums[start] < p_target) {
@@ -99,8 +117,10 @@ private:
 
 int main(void) {
     Solution s;
-    int arr [] = {5, 7, 7, 8, 8, 10};
+    int arr [] = {3, 8, 8, 8, 8, 10, 10};
     vector<int> iarr(arr, arr + sizeof(arr) / sizeof(arr[0]));
-    s.searchRange(iarr, 5);
+    s.searchRange(iarr, 10);
+    s.searchRange(iarr, 8);
+
     return 0;
 };

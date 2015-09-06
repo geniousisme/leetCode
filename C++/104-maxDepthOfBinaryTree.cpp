@@ -18,13 +18,14 @@ public:
         traverse(root, 0, max_depth);
         return max_depth;
     }
-    int maxDepth(TreeNode* root) {
-        if (root == nullptr) return 0;
-        int right_max_dep = maxDepth(root->right);
-        int left_max_dep  = maxDepth(root->left);
-        // return std::max(maxDepth(root->right), maxDepth(root->left)) + 1;
-        return (right_max_dep > left_max_dep ? right_max_dep : left_max_dep) + 1;
-    }
+    int maxDepth(TreeNode *root) {
+        if (root == nullptr) {
+            return 0;
+        };
+        int leftDepth  = maxDepth(root->left);
+        int rightDepth = maxDepth(root->right);
+        return (leftDepth > rightDepth ? leftDepth : rightDepth) + 1;
+    } 
 private:
     void traverse(TreeNode* root, int depth, int& max_depth){
          if (root == nullptr){

@@ -10,9 +10,26 @@ struct TreeNode {
  
 class Solution {
 public:
-    vector<int> inorderTraversal(TreeNode* root) {
+    vector<int> inorderTraversalI(TreeNode* root) {
                 vector<int> res;
                 iterInorderHelper(root, res);
+                return res;
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+                vector<int> res;
+                vector<TreeNode*> stack;
+                while (root || !stack.empty()) {
+                       if (root) {
+                           stack.push_back(root);
+                           root = root->left;
+                       }
+                       else {
+                           root = stack.back();
+                           res.push_back(root->val);
+                           stack.pop_back();
+                           root = root->right;
+                       };
+                };
                 return res;
     }
 private:
@@ -25,21 +42,6 @@ private:
          return;
     }
     // Chris:TODO::NTR!
-    void iterInorderHelper(TreeNode* root, vector<int>& res){
-         vector<TreeNode*> stack;
-         while (root || !stack.empty()){
-                if (root){
-                    stack.push_back(root);
-                    root = root->left;
-                } else {
-                    root = stack.back();
-                    stack.pop_back();
-                    res.push_back(root->val);
-                    root = root->right;
-                };
-         };
-         return;
-    }
 };
 int main(void){
     return 0;

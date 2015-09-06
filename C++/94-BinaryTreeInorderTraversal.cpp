@@ -12,7 +12,7 @@ class Solution {
 public:
     vector<int> inorderTraversalI(TreeNode* root) {
                 vector<int> res;
-                iterInorderHelper(root, res);
+                recInorderHelper(root, res);
                 return res;
     }
     vector<int> inorderTraversal(TreeNode* root) {

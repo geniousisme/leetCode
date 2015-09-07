@@ -39,9 +39,9 @@ public:
                 vector<int> res;
                 vector<TreeNode*> stack;
                 while (root || !stack.empty()) {
-                       if (root) {
-                           stack.push_back(root);
+                       if (root) { 
                            res.push_back(root->val);
+                           stack.push_back(root);
                            root = root->left;
                        }
                        else {

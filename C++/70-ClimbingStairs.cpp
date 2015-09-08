@@ -8,7 +8,7 @@ public:
         };
         return climbStairs(n - 1) + climbStairs(n - 2);
     }
-    int climbStairs(int n) {
+    int climbStairsI(int n) {
         vector<int> res(2, 1);
         if (n >= 2) {
             for (int i = 2; i <= n; i++) {
@@ -16,6 +16,12 @@ public:
             }
         };
         return res[n];
+    }
+    int climbStairs(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        };
+        return climbStairs(n - 1) + climbStairs(n - 2);
     }
 };
 

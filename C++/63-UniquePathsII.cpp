@@ -2,7 +2,7 @@
 
 class Solution {
 public:
-    int uniquePathsWithObstacles(vector<vector<int> >& obstacleGrid) {
+    int uniquePathsWithObstaclesI(vector<vector<int> >& obstacleGrid) {
         int rowNum = obstacleGrid.size(), colNum = obstacleGrid[0].size();
         if (obstacleGrid[0][0] || obstacleGrid[rowNum - 1][colNum - 1]) {
             return 0;
@@ -32,6 +32,43 @@ public:
              };
         };
         return obstacleGrid[rowNum - 1][colNum - 1];
+    }
+    int uniquePathsWithObstacles(vector<vector<int> >& obstacleGrid) {
+        int rowNum = obstacleGrid.size(), colNum = obstacleGrid[0].size();
+        if (obstacleGrid[0][0] == 1 || obstacleGrid[rowNum - 1][colNum - 1] == 1) {
+            return 0;
+        };
+        obstacleInit(obstacleGrid, rowNum, colNum);
+        for (int i = 1; i < rowNum; i++) {
+             for (int j = 1; j < colNum; j++) {
+                  if (obstacleGrid[i][j] == 1) {
+                      obstacleGrid[i][j] = 0;
+                  }
+                  else {
+                      obstacleGrid[i][j] = obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1];
+                  };
+             };
+        };
+        return obstacleGrid[rowNum - 1][colNum - 1];
+    }
+private:
+    int obstacleExist;
+    void obstacleInit(vector<vector<int> >& maze, int rowNum, int colNum) {
+         obstacleExist = 1;
+         for (int j = 1; j < colNum; j++) {
+              if (maze[0][j] == 1) {
+                  obstacleExist = 0;
+              };
+              maze[0][j] = obstacleExist;
+         };
+         obstacleExist = 1;
+         for (int i = 1; i < rowNum; i++) {
+              if (maze[i][0] == 1) {
+                  obstacleExist = 0;
+              };
+              maze[i][0] = obstacleExist;
+         };
+         return;
     }
 };
 

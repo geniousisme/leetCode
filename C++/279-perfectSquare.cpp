@@ -2,7 +2,7 @@
 
 class Solution {
 public:
-    int numSquaresDP(int n) {
+    int numSquares(int n) {
         vector<int> dp(n + 1, numeric_limits<int>::max());
         for (int i = 1; i * i <= n; i++) {
              dp[i * i] = 1;

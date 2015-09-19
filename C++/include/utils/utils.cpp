@@ -31,7 +31,7 @@ void Utils::print2DIntVector(vector<vector<int> > twoDNums) {
          for (int j = 0; j < twoDNums[i].size(); j++) {
               cout << twoDNums[i][j] << " ";
          };
-         cout << "] ";
+         cout << "] \n";
      };
      cout << endl;
 }

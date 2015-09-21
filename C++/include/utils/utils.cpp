@@ -20,6 +20,17 @@ void Utils::printLinkedList(ListNode* head) {
      cout << endl;
 }
 
+void Utils::printRandomList(RandomListNode* head) {
+     while (head) {
+            cout << head->label;
+            if (head->next) {
+                cout << " -> "; 
+            };
+            head = head->next;
+     };
+     cout << endl;
+}
+
 void Utils::printIntVector(vector<int> nums) {
      for(int i = 0; i < nums.size(); i++) cout << nums[i] << " ";
      cout << endl;

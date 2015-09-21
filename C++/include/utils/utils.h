@@ -8,6 +8,7 @@ public:
     Utils();
     ~Utils();
     void printLinkedList(ListNode*); 
+    void printRandomList(RandomListNode*); 
     void printIntVector(vector<int>);
     void print2DIntVector(vector<vector<int> >);
     void printStrVector(vector<string>);

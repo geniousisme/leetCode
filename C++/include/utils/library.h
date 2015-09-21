@@ -29,6 +29,8 @@ using namespace std;
 // leetCode Library
 #include "library/tree_node.h"
 #include "library/list_node.h"
+#include "library/random_list_node.h"
+
 // #include "interval.h"
 // #include "tree_link_node.h"
 // #include "undirected_graph_node.h"

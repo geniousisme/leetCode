@@ -38,7 +38,7 @@
 # 	@ag -g "cpp|py|java" | sed -e 's/\/.*//' | sort | uniq | sort | uniq -u | wc -l
 
 # CC and CFLAGS are varilables
-CC=g++
+CC=g++ -std=c++11
 CFLAGS = -c
 AR = ar
 ARFLAGS = rcv
